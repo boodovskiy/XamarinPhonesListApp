@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinTests.NavigationApp.PhonePage"
+             Title="Информация о смартфоне">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="nameEntry" Text="{Binding Path=Name}"  />
+            <Entry x:Name="companyEntry" Text="{Binding Path=Company}"  />
+            <StackLayout Orientation="Horizontal">
+                <Stepper x:Name="priceStepper" Minimum="0" Maximum="100000" Increment="100"
+               Value="{Binding Path=Price}"/>
+                <Label x:Name="priceLbl" FontSize="Large"
+             Text="{Binding Source={x:Reference Name=priceStepper}, Path=Value }" />
+            </StackLayout>
+            <Button Text="Сохранить" Clicked="SavePhone" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
